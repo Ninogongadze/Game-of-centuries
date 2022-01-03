@@ -1,0 +1,86 @@
+* {
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(126, 118, 180);
+    
+    
+    } 
+    
+header {
+background: cornsilk;
+padding: 20px;
+
+} 
+
+.images {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.images > img {
+    margin:  0 15px;
+}
+
+header >h1 {
+    color: darkgreen;
+    text-align: center;
+    font-family: cursive;
+    } 
+
+    .score-board {
+        border: 3px solid white;
+        width: 300px;
+        margin: 20px auto;
+        color: rgb(102, 37, 37);
+        font-size: 50px;
+        border-radius: 5px;
+        text-align: center;
+        padding: 15px 20px;
+        position: relative;
+        } 
+        
+   .badge {
+            background: chocolate;
+            color: white;
+            font-size: 16px;
+            padding: 3px 10px;
+    
+            }
+            
+            #Player-label {
+                position: absolute;
+                top: 30px;
+                left: -35px;
+        
+                }
+                #Computer-label {
+                    position: absolute;
+                    top: 30px;
+                    right: -35px;
+            
+                    } 
+
+    .Result  {
+        font-size: 40px;
+        color: white;
+    }
+    .Result >p {
+        text-align: center;
+        font-weight: bold;
+        } 
+        .choice{
+            text-align: center;
+            margin: 50px 0;
+            } 
+            #Action-message {
+                text-align: center;
+                 color: rgb(1, 22, 1);
+font-weight: bold;
+font-size: 30px;
+                } 
