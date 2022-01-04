@@ -16,19 +16,23 @@ padding: 20px;
 
 } 
 
-.images {
+.selection {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
+    cursor: pointer;
 }
 
-.images > img {
+.selection> img {
     margin:  0 15px;
 }
+.selection :hover {
+    transform: scale(1.1);
+}  
 
 header >h1 {
-    color: darkgreen;
+    color: rgb(13, 14, 13);
     text-align: center;
     font-family: cursive;
     } 
@@ -80,7 +84,7 @@ header >h1 {
             } 
             #Action-message {
                 text-align: center;
-                 color: rgb(1, 22, 1);
+                 color: rgba(2, 0, 7, 0.863);
 font-weight: bold;
 font-size: 30px;
                 } 
