@@ -148,7 +148,7 @@ else if (playerscore==compscore)
 
 playerscore=0;
 compscore=0;
-winnerLabel.innerHTML=".";
+/*winnerLabel.innerHTML=".";*/
 
 gameLevel=0;
 
@@ -199,7 +199,3 @@ class pikeman {
 
 }
 
-function winner() {
-  if(gameLevel==20)
-    document.getElementById("winner").innerHTML = "Game is Over!";
-} 
