@@ -11,28 +11,35 @@
      <h1> Game of Centuries </h1>
   </header>
   <div class="score-board">
+   <span id="userplayerlabel"></span>
      <div  id="Player-label" class="badge"> Player</div>
      <div  id="Computer-label" class="badge"> Computer</div>
+     <span id="computerplayerlabel"></span>
+
      <span id="Player-score"> 0 </span>:<span id="Computer-score"> 0 </span>
+     
   </div>
   <div class="row">
-   <div class="column"> 
+   <div class="column"id="player" > 
      <div class="selection">
-      <img src="images/archer.jpg" height="200" width="200" alt="" class="img">
-      <img src="images/cavalry1.jpg" height="200" width="200" alt="" class="img">
-      <img src="images/pikeman.jpg" height="200" width="200" alt="" class="img">
-     </div>
- </div> 
-  </div>
-  <div class="Result">
-</div>
-  <div class="choice">
-   <div class="choice2" id="A"> 
-    </div>
-   <div class="choice2" id="C"> 
+      <img src="images/archer.jpg" height="200" width="200" alt="" class="img" id="archer" >
+      <img src="images/cavalry1.jpg" height="200" width="200" alt="" class="img" id="cavalry" >
+      <img src="images/pikeman.jpg" height="200" width="200" alt="" class="img" id="pikeman" > 
    </div>
-   <div class="choice2" id="P"> 
-  </div>
+   <div class="Result">
+ </div>
+   <div class="choice">
+    <div class="choice2" id="A"> 
+     </div>
+    <div class="choice2" id="C"> 
+    </div>
+    <div class="choice2" id="P"> 
+   </div>
+
   <p id="Action-message">Make your move.</p>
+  <span id="lveld">Level</span>
+  <span id="gameLevelLable">0</span>
+  <label id="winnerLabel">.</label>
+
 </body>
 </html>

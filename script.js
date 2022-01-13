@@ -1,100 +1,205 @@
-const selection = document.array.forEach(element => {
+var player=null;
+var computer=null;
+var playerscore=0;
+var compscore=0;
+var gameLevel=0
+const userscoreSpan=document.getElementById("Player-score");
+const compiutercoreSpan=document.getElementById("Computer-score");
+const userplayerlabel=document.getElementById("userplayerlabel");
+const computerplayerlabel=document.getElementById("computerplayerlabel");
+const gameLevelLable=document.getElementById("gameLevelLable");
+const winnerLabel=document.getElementById("winnerLabel");
+
+ document.getElementById('archer').addEventListener('click',function ()
+ {
+  chooseArcher();
+  });
+
+  document.getElementById('cavalry').addEventListener('click',function () {
+   
+    chooseCavalry();
+  
+    });
+
+    document.getElementById('pikeman').addEventListener('click',function () {
+   
+      choosePikeman();
     
-});('[data-selection]');
+      });
 
-selection.addEventListener('click', e=> {
-    const selectionName = selection.dataset.selection
-makeSelection(selectionName)
-})
-function makeSelection (selection) {
-console.log(selection)
+  function choosecomputerPlayer()
+  {
+    var randomnumber=Math.floor(Math.random() * 4).toString();
 
 
-
-
-
-
-
-const playerscore=0;
-const computerscore=0;
-const playerscore_span = document.getElementById("player-score");
-const computerscore_span = document.getElementById("computer-score");
-const scoreboard_div = document.querySelector(".score-board");
-const result_div = document.querySelector(".Result");
-const Archeer_div = document.getElementById("A");
-const cavalry1_div = document.getElementById("C");
-const pikeman_div = document.getElementById("P");
-
- function getcomputerchoice() {
-     const choices =['A', 'C', 'P'];
-     const randomNumber = Math.floor(Math.random()*3);
-     return choices[randomNumber];
- }
- 
-function game(playerChoice) {
-    console.log('dsds');
-    const computerChoice = getcomputerchoice();
-    switch(playerChoice + computerChoice) {
-        case "AP":
-        case "CA":
-        case "PC":
-        console.log("Player Wins.");
+    switch (randomnumber) {
+   
+      case "0":
+        computer=new warrior("cavalry","archer","pikeman");
         break;
-        case "CP":
-        case "AC":
-        case "PA":
-         console.log("Player loses."); 
-         break;
-         case "CC":
-        case "AA":
-        case "PP":
-        console.log("It's a draw.");  
+    
+        case "1":
+          computer=new warrior("archer","pikeman","cavalry");
+        break;
+        case "2":
+          computer=new warrior("pikeman","cavalry","archer");
+        break;
+
+       
+
+      default:
         break;
     }
+  }
+
+  function chooseArcher()
+  {
+   
+    player=new warrior("cavalry","archer","pikeman");
+    
+    choosecomputerPlayer();
+
+    userplayerlabel.innerHTML=player.name;
+    computerplayerlabel.innerHTML=computer.name;
+    StartGame();
+
+  }
+
+  function choosePikeman()
+  {
+
+    player=new warrior("cavalry","archer","pikeman");
+    choosecomputerPlayer();
+
+    userplayerlabel.innerHTML=player.name;
+    computerplayerlabel.innerHTML=computer.name;
+
+    StartGame();
+
+  }
+
+  function chooseCavalry()
+  {
+
+    player=new warrior("archer","pikeman","cavalry");
+    choosecomputerPlayer();
+
+    userplayerlabel.innerHTML=player.name;
+    computerplayerlabel.innerHTML=computer.name;
+
+    StartGame();
+  }
+
+function StartGame()
+{
+
+  gameLevel+=1;
+
+  gameLevelLable.innerHTML=gameLevel;
+
+ if(player.defeats==computer.name)
+{
+  playerscore+=1;
+
+  if(compscore>0)
+  compscore-=1;
+}
+else if(player.defeated==computer.name)
+{
+ 
+  if(playerscore>0)
+  playerscore-=1;
+
+  compscore+=1;
+}
+else if(player.name==computer.name) 
+{
+  if(playerscore>0)
+  playerscore-=1;
+
+  if(compscore>0)
+  compscore-=1;
+
+
 }
 
-main();  
-function main(){
- Archeer_div.addEventListener('click', function() {
-     game("A");
-    })
- cavalry1_div.addEventListener('click', function() {
-    game("C");
-   }) 
- pikeman_div.addEventListener('click', function() {
-    game("P");
-   }) 
+  compiutercoreSpan.innerHTML=compscore;
+  userscoreSpan.innerHTML=playerscore;
+
+  if(gameLevel==20)
+  {
+  
+    debugger;
+
+if(playerscore>compscore)
+{
+  winnerLabel.innerHTML="Winner is Player";
+}
+else if(playerscore<compscore) 
+{
+  winnerLabel.innerHTML="Winner is Computer";
+
+}
+else if (playerscore==compscore)
+{
+  winnerLabel.innerHTML="It is draw";
+
 }
 
+playerscore=0;
+compscore=0;
+winnerLabel.innerHTML=".";
 
+gameLevel=0;
 
+  }
 
-
-
-
-
-const obe = [0,1,2];
-
-function getRandomInt(numb) {
-    // console.log(numb[Math.floor(Math.random()*numb.length)]);
-    return numb[Math.floor(Math.random()*numb.length)];
 }
 
+function Game(player,comuter)
+{
+while (player.power>0) {
+  
+  player.power-=computer.power
 
-document.querySelectorAll('.img').forEach((element, id) => {
-    element.addEventListener('click', function() {
-        getRandomInt(obe);
-        
-        console.log(element, id, getRandomInt(obe))
-        if(id > getRandomInt(obe)){
-            console.log('moige')
-        }
-        
-        if (id == getRandomInt(obe)){
-            console.log('orivem waaget')
-        }
-        
-        if(id < getRandomInt(obe)){
-            console.log('luzeri xar, waage')
-        }
-        
+}  
+}
+
+class warrior
+{
+  constructor(defeats, defeated,name){
+
+    this.defeats=defeats;
+    this.defeated=defeated;
+    this.name=name;
+  }
+  
+}
+
+class archer {
+  
+  defeats="pikeman";
+  defeated="cavalry";
+  name="archer";
+}
+
+class cavalry {
+
+  defeats="archer";
+  defeated="pikeman";
+  name="cavalry";
+
+}
+
+class pikeman {
+  defeats="cavalry";
+  defeated="archer";
+
+  name="pikeman";
+
+}
+
+function winner() {
+  if(gameLevel==20)
+    document.getElementById("winner").innerHTML = "Game is Over!";
+} 

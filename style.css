@@ -48,7 +48,29 @@ header >h1 {
         padding: 15px 20px;
         position: relative;
         } 
+    
+
+        .choosedPlayer {
+            background: rgb(26, 25, 25);
+            color: white;
+            font-size: 16px;
+            padding: 3px 10px;
+    
+            }
+            
+            #userplayerlabel {
+                position: absolute;
+                top: 5px;
+                left: -220px;
         
+                }
+                #computerplayerlabel {
+                    position: absolute;
+                    top: 5px;
+                    right: -250px;
+            
+                    } 
+
    .badge {
             background: chocolate;
             color: white;
@@ -88,3 +110,4 @@ header >h1 {
 font-weight: bold;
 font-size: 30px;
                 } 
+                
